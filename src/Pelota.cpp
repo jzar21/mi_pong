@@ -1,4 +1,7 @@
 #include "Pelota.h"
+#include <cmath>
+
+using namespace std;
 
 Pelota::Pelota(){
     radio = p_x = p_y = dx = dy = 0;
@@ -17,8 +20,8 @@ void Pelota::SetRadio(float el_radio){
 }
 
 void Pelota::Mover(void){
-    p_x = dx;
-    p_y = dy;
+    p_x += dx;
+    p_y += dy;
 }
 
 void Pelota::Mover(float ancho, float alto){
@@ -39,18 +42,18 @@ void Pelota::AjustarPosiciones(float ancho, float alto){
 }
 
 void Pelota::RebotaBordes(float ancho, float alto){
-    if( p_x > ancho || p_x <= 0)
+    if( p_x >= (ancho - radio) || (p_x - radio) <= 0)
         dx *= -1;
-    if( p_y > ancho || p_y <= 0)
+    if( p_y >= (alto - radio) || (p_y - radio) <= 0)
         dy *= -1;
 }
 
-void Pelota::GetPosX(void) const{
+float Pelota::GetPosX(void) const{
     return p_x;
 }
-void Pelota::GetPosY(void) const{
+float Pelota::GetPosY(void) const{
     return p_y;
 }
-void Pelota::GetRadio(void)const{
+float Pelota::GetRadio(void)const{
     return radio;
 }

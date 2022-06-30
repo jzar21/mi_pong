@@ -1,5 +1,7 @@
 #include "Rectangulo.h"
 #include <cmath>
+#include "Pelota.h"
+
 Rectangulo::Rectangulo(){
     largo = ancho = pos_x = pos_y = v_x = v_y = 0;
 }
@@ -26,3 +28,6 @@ void Rectangulo::Mover(void){
     pos_y += dy ;
 }
 
+bool Rectangulo::Colision(const Pelota & pelota){
+    
+}

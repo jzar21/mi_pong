@@ -1,6 +1,7 @@
 #ifndef RECTANGULO_H
 #define RECTANGULO_H
 #include <cmath>
+#include "Pelota.h"
 
 class Rectangulo{
 private:
@@ -11,6 +12,7 @@ public:
     void SetLargo(float);
     void SetAncho(float);
     void Mover(void);
+    bool Colision(const Pelota & );
 };
 
 

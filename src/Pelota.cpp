@@ -44,3 +44,13 @@ void Pelota::RebotaBordes(float ancho, float alto){
     if( p_y > ancho || p_y <= 0)
         dy *= -1;
 }
+
+void Pelota::GetPosX(void) const{
+    return p_x;
+}
+void Pelota::GetPosY(void) const{
+    return p_y;
+}
+void Pelota::GetRadio(void)const{
+    return radio;
+}

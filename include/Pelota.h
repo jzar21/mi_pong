@@ -13,6 +13,8 @@ public:
     void Mover(void);
     void Mover(float, float);
     void RebotaBordes(float, float);
+    float GetRadio(void) const;
+    float GetPosX(void) const;    
+    float GetPosY(void) const;   
 };
-
 #endif

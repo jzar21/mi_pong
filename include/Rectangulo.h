@@ -5,6 +5,7 @@
 
 class Rectangulo{
 private:
+    //pos_x y pos_y son la posicion de la esquina inferior izda
     float largo, ancho, pos_x, pos_y, v_x, v_y;
 public:
     Rectangulo();
@@ -12,7 +13,7 @@ public:
     void SetLargo(float);
     void SetAncho(float);
     void Mover(void);
-    bool Colision(const Pelota & );
+    bool Colision(const Pelota & pelota);
 };
 
 

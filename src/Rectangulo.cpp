@@ -27,7 +27,3 @@ void Rectangulo::Mover(void){
     pos_x += dx ;
     pos_y += dy ;
 }
-
-bool Rectangulo::Colision(const Pelota & pelota){
-    
-}

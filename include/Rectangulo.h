@@ -13,13 +13,22 @@ public:
     Rectangulo(float, float, float, float, float, float);
     void SetLargo(float);
     void SetAncho(float);
-    void Mover(void);
-    void Mover(int, int);
-    bool Colision(const Pelota & pelota)const;
+    void SetLargo(float);
+    void SetPosX(float);
+    void SetPosY(float);
+    void SetDX(float);
+    void SetDY(float);
+
     float GetLargo(void)const;
     float GetAncho(void)const;
     float GetPosX(void)const;
     float GetPosY(void)const;
+    float GetDX(void) const;    
+    float GetDY(void) const;
+
+    void Mover(void);
+    void Mover(int, int);
+    bool Colision(const Pelota & pelota)const;
     void MoverFlechas(char, int , int);
 };
 

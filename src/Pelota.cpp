@@ -62,6 +62,20 @@ float Pelota::GetDX(void) const{
     return dx;
 }
 
+float Pelota::GetDY(void) const{
+    return dy;
+}
+
 void Pelota::SetDX(float dx){
     this->dx = dx;
+}
+
+void Pelota::SetDY(float dy){
+    this->dy = dy;
+}
+void Pelota::SetPosX(float x){
+    p_x = x;
+}
+void Pelota::SetPosY(float y){
+    p_y = y;
 }

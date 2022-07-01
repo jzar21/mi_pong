@@ -25,6 +25,22 @@ void Rectangulo::SetAncho(float el_ancho){
     ancho = abs(el_ancho);
 }
 
+void Rectangulo::SetPosY(float y){
+    pos_y = y;
+}
+
+void Rectangulo::SetPosX(float x){
+    pos_x = x;
+}
+
+void Rectangulo::SetDX(float dx){
+    this->dx = dx;
+}
+
+void Rectangulo::SetDY(float dy){
+    this->dy = dy;
+}
+
 void Rectangulo::Mover(void){
     pos_x += dx ;
     pos_y += dy ;
@@ -63,6 +79,14 @@ float Rectangulo::GetPosY()const{
 
 float Rectangulo::GetPosX()const{
     return pos_x;
+}
+
+float Rectangulo::GetDX()const{
+    return dx;
+}
+
+float Rectangulo::GetDX()const{
+    return dy;
 }
 
 void Rectangulo::MoverFlechas(char c, int ancho, int alto){

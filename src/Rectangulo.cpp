@@ -65,27 +65,27 @@ void Rectangulo::AjustarPosicion(int ancho, int alto){
         pos_y = 0;
 }
 
-float Rectangulo::GetLargo()const{
+float Rectangulo::GetLargo(void)const{
     return largo;
 }
 
-float Rectangulo::GetAncho()const{
+float Rectangulo::GetAncho(void)const{
     return ancho;
 }
 
-float Rectangulo::GetPosY()const{
+float Rectangulo::GetPosY(void)const{
     return pos_y;
 }
 
-float Rectangulo::GetPosX()const{
+float Rectangulo::GetPosX(void)const{
     return pos_x;
 }
 
-float Rectangulo::GetDX()const{
+float Rectangulo::GetDX(void)const{
     return dx;
 }
 
-float Rectangulo::GetDX()const{
+float Rectangulo::GetDX(void)const{
     return dy;
 }
 

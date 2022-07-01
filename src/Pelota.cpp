@@ -57,3 +57,11 @@ float Pelota::GetPosY(void) const{
 float Pelota::GetRadio(void)const{
     return radio;
 }
+
+float Pelota::GetDX(void) const{
+    return dx;
+}
+
+void Pelota::SetDX(float dx){
+    this->dx = dx;
+}

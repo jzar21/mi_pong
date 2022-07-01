@@ -44,7 +44,8 @@ int main(){
         r_izd.MoverFlechas(Direccion2(), ancho, largo);
         r_dch.MoverFlechas(Direccion(), ancho, largo);
 
-
+        if(r_izd.Colision(pelota) || r_dch.Colision(pelota))
+            pelota.SetDX(pelota.GetDX() * -1);
         //parte grafica
         BeginDrawing();
         ClearBackground(BLACK);

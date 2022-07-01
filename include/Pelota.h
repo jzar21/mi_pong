@@ -10,11 +10,13 @@ public:
     Pelota();
     Pelota(float, float, float, float, float);
     void SetRadio(float);
+    void SetDX(float);
     void Mover(void);
     void Mover(float, float);
     void RebotaBordes(float, float);
     float GetRadio(void) const;
     float GetPosX(void) const;    
     float GetPosY(void) const;   
+    float GetDX(void) const;
 };
 #endif

@@ -5,7 +5,7 @@
 
 class Rectangulo{
 private:
-    //pos_x y pos_y son la posicion de la esquina inferior izda
+    //pos_x y pos_y son la posicion de la esquina superior izda
     float largo, ancho, pos_x, pos_y, dx, dy;
     void AjustarPosicion(int, int);
 public:

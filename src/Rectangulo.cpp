@@ -30,23 +30,23 @@ void Rectangulo::Mover(void){
     pos_y += dy ;
 }
 
-void Rectangulo::Mover(float ancho, float alto){
+void Rectangulo::Mover(int ancho, int alto){
     Mover();
     AjustarPosicion(ancho, alto);
 }
 
-void Rectangulo::AjustarPosicion(float ancho, float alto){
-    if (p_x >= ancho - this->ancho)
-        p_x = ancho - this ->ancho;
+void Rectangulo::AjustarPosicion(int ancho, int alto){
+    if (pos_x >= ancho - this->ancho)
+        pos_x = ancho - this ->ancho;
+    
+    else if (pos_x <= 0)
+        pos_x = 0;
+    
+    if (pos_y >= alto - this->largo)
+        pos_y = alto - this->largo;
 
-    else if (p_x <= ancho)
-        p_x = ancho;
-
-    if (p_y >= alto - this->largo)
-        p_y = alto - this->largo;
-
-    else if (p_y <= this->largo)
-        p_y = this->largo;
+    else if (pos_y <= 0)
+        pos_y = 0;
 }
 
 float Rectangulo::GetLargo()const{
@@ -65,13 +65,19 @@ float Rectangulo::GetPosX()const{
     return pos_x;
 }
 
-void Rectangulo::MoverFlechas(char c){
+void Rectangulo::MoverFlechas(char c, int ancho, int alto){
+    
     if( c == 'U')
         pos_y -= dy;
+    
     else if(c == 'D')
         pos_y += dy;
+    
     else if(c == 'R')
         pos_x += dx;
+    
     else if(c == 'L')
         pos_x -= dx;
+    
+    AjustarPosicion(ancho, alto);
 }

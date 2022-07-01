@@ -17,24 +17,39 @@ char Direccion(){
     return dir;
 }
 
+char Direccion2(){
+    char dir = ' ';
+    
+    if (IsKeyDown(KEY_W))
+        dir = 'U';
+    if(IsKeyDown(KEY_S))
+        dir = 'D';
+    if(IsKeyDown(KEY_A))
+        dir = 'L';
+    if(IsKeyDown(KEY_D))
+        dir = 'R';
+    return dir;
+}
+
 int main(){
     InitWindow(ancho, largo, "Mi Pong");
 
     Pelota pelota(10, 20, 20, 1, 1);
-    Rectangulo r_izd(90, 20 , 90, 90, 1, 1);
-    Rectangulo r();
+    Rectangulo r_izd(90, 20 , 20, largo/2 - 90, 0, 2);
+    Rectangulo r_dch(90, 20, ancho - 40 , largo/2 - 90, 0, 2);
             
     while(!WindowShouldClose()){
         pelota.Mover(ancho, largo);
         pelota.RebotaBordes(ancho, largo);
-        r_izd.MoverFlechas(Direccion(), ancho, largo);
-        
+        r_izd.MoverFlechas(Direccion2(), ancho, largo);
+        r_dch.MoverFlechas(Direccion(), ancho, largo);
 
 
         //parte grafica
         BeginDrawing();
         ClearBackground(BLACK);
         PintarRectangulo(r_izd, WHITE);
+        PintarRectangulo(r_dch, WHITE);
         PintarPelota(pelota, RED);
         EndDrawing();
     }

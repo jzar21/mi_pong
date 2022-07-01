@@ -44,6 +44,7 @@ void Rectangulo::AjustarPosicion(float ancho, float alto){
 
     if (p_y >= alto - this->largo)
         p_y = alto - this->largo;
+
     else if (p_y <= this->largo)
         p_y = this->largo;
 }
@@ -62,4 +63,15 @@ float Rectangulo::GetPosY()const{
 
 float Rectangulo::GetPosX()const{
     return pos_x;
+}
+
+void Rectangulo::MoverFlechas(char c){
+    if( c == 'U')
+        pos_y -= dy;
+    else if(c == 'D')
+        pos_y += dy;
+    else if(c == 'R')
+        pos_x += dx;
+    else if(c == 'L')
+        pos_x -= dx;
 }

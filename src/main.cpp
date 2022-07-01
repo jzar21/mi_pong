@@ -4,6 +4,19 @@
 #include "Rectangulo.h"
 #include "Pintar.h"
 
+char Direccion(){
+    char dir = ' ';
+    if (IsKeyDown(KEY_UP))
+        dir = 'U';
+    if (IsKeyDown(KEY_DOWN))
+        dir = 'D';
+    if (IsKeyDown(KEY_LEFT))
+        dir = 'L';
+    if (IsKeyDown(KEY_RIGHT))
+        dir = 'R';
+    return dir;
+}
+
 int main(){
     InitWindow(ancho, largo, "Mi Pong");
 
@@ -13,7 +26,11 @@ int main(){
     while(!WindowShouldClose()){
         pelota.Mover(ancho, largo);
         pelota.RebotaBordes(ancho, largo);
+        r_izd.MoverFlechas(Direccion());
 
+
+
+        //parte grafica
         BeginDrawing();
         ClearBackground(BLACK);
         PintarRectangulo(r_izd, WHITE);

@@ -20,6 +20,7 @@ public:
     float GetAncho(void)const;
     float GetPosX(void)const;
     float GetPosY(void)const;
+    void MoverFlechas(char);
 };
 
 

@@ -30,6 +30,24 @@ void Rectangulo::Mover(void){
     pos_y += dy ;
 }
 
+void Rectangulo::Mover(float ancho, float alto){
+    Mover();
+    AjustarPosicion(ancho, alto);
+}
+
+void Rectangulo::AjustarPosicion(float ancho, float alto){
+    if (p_x >= ancho - this->ancho)
+        p_x = ancho - this ->ancho;
+
+    else if (p_x <= ancho)
+        p_x = ancho;
+
+    if (p_y >= alto - this->largo)
+        p_y = alto - this->largo;
+    else if (p_y <= this->largo)
+        p_y = this->largo;
+}
+
 float Rectangulo::GetLargo()const{
     return largo;
 }

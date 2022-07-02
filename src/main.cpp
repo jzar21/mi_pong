@@ -34,9 +34,9 @@ char Direccion2(){
 int main(){
     InitWindow(ancho, largo, "Mi Pong");
 
-    Pelota pelota(10, 20, 20, 1, 1);
-    Rectangulo r_izd(90, 20 , 20, largo/2 - 90, 0, 2);
-    Rectangulo r_dch(90, 20, ancho - 40 , largo/2 - 90, 0, 2);
+    Pelota pelota(10, 20, 20, .5, .5);
+    Rectangulo r_izd(90, 20 , 20, largo/2 - 90, 0, .5);
+    Rectangulo r_dch(90, 20, ancho - 40 , largo/2 - 90, 0, .5);
             
     while(!WindowShouldClose()){
         pelota.Mover(ancho, largo);

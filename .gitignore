@@ -2,3 +2,4 @@
 lib/
 libraylib.a
 Makefile
+*.exe

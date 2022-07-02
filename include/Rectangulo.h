@@ -11,7 +11,6 @@ private:
 public:
     Rectangulo();
     Rectangulo(float, float, float, float, float, float);
-    void SetLargo(float);
     void SetAncho(float);
     void SetLargo(float);
     void SetPosX(float);

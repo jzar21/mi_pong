@@ -85,7 +85,7 @@ float Rectangulo::GetDX(void)const{
     return dx;
 }
 
-float Rectangulo::GetDX(void)const{
+float Rectangulo::GetDY(void)const{
     return dy;
 }
 

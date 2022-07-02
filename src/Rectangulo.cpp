@@ -1,8 +1,7 @@
 #include "Rectangulo.h"
 #include <cmath>
-#include "Pelota.h"
 
-using namespace std;
+
 
 Rectangulo::Rectangulo(){
     largo = ancho = pos_x = pos_y = dx = dy = 0;
@@ -104,17 +103,4 @@ void Rectangulo::MoverFlechas(char c, int ancho, int alto){
         pos_x -= dx;
     
     AjustarPosicion(ancho, alto);
-}
-
-bool Rectangulo::Colision(const Pelota &p)const{
-    bool choque = false;
-    bool g_izd, g_dch;
-    
-    //por simplicidad para este juego ignoramos los golpes arriba y abajo
-    g_izd = p.GetPosX() + p.GetRadio() == pos_x && p.GetPosY() <= pos_y + largo && p.GetPosY() >= pos_y;
-    g_dch = p.GetPosX() - p.GetRadio() == pos_x + ancho && p.GetPosY() <= pos_y + largo && p.GetPosY() >= pos_y;
-
-    choque = g_izd || g_dch ;
-    
-    return choque;
 }

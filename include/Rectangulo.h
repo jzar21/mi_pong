@@ -1,7 +1,7 @@
 #ifndef RECTANGULO_H
 #define RECTANGULO_H
 #include <cmath>
-#include "Pelota.h"
+
 
 class Rectangulo{
 private:
@@ -27,7 +27,6 @@ public:
 
     void Mover(void);
     void Mover(int, int);
-    bool Colision(const Pelota & pelota)const;
     void MoverFlechas(char, int , int);
 };
 

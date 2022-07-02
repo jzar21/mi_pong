@@ -3,38 +3,13 @@
 #include "Pelota.h"
 #include "Rectangulo.h"
 #include "Pintar.h"
+#include "F_Auxiliares.h"
 
-char Direccion(){
-    char dir = ' ';
-    if (IsKeyDown(KEY_UP))
-        dir = 'U';
-    if (IsKeyDown(KEY_DOWN))
-        dir = 'D';
-    if (IsKeyDown(KEY_LEFT))
-        dir = 'L';
-    if (IsKeyDown(KEY_RIGHT))
-        dir = 'R';
-    return dir;
-}
-
-char Direccion2(){
-    char dir = ' ';
-    
-    if (IsKeyDown(KEY_W))
-        dir = 'U';
-    if(IsKeyDown(KEY_S))
-        dir = 'D';
-    if(IsKeyDown(KEY_A))
-        dir = 'L';
-    if(IsKeyDown(KEY_D))
-        dir = 'R';
-    return dir;
-}
 
 int main(){
     InitWindow(ancho, largo, "Mi Pong");
 
-    Pelota pelota(10, 20, t_pelota, v_pelota, v_pelota);
+    Pelota pelota(10, 200, t_pelota, v_pelota, v_pelota);
 
     Rectangulo r_izd(alto_barra, ancho_barra , posx_ini_izd, posy_ini, 0, v_barra);
 
@@ -46,7 +21,7 @@ int main(){
         r_izd.MoverFlechas(Direccion2(), ancho, largo);
         r_dch.MoverFlechas(Direccion(), ancho, largo);
 
-        if(r_izd.Colision(pelota) || r_dch.Colision(pelota))
+        if(Colision(r_dch, pelota) || Colision(r_izd, pelota))
             pelota.SetDX(pelota.GetDX() * -1.0f);
 
 

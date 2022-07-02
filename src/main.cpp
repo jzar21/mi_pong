@@ -34,9 +34,11 @@ char Direccion2(){
 int main(){
     InitWindow(ancho, largo, "Mi Pong");
 
-    Pelota pelota(10, 20, 20, .5, .5);
-    Rectangulo r_izd(90, 20 , 20, largo/2 - 90, 0, .5);
-    Rectangulo r_dch(90, 20, ancho - 40 , largo/2 - 90, 0, .5);
+    Pelota pelota(10, 20, t_pelota, v_pelota, v_pelota);
+
+    Rectangulo r_izd(alto_barra, ancho_barra , posx_ini_izd, posy_ini, 0, v_barra);
+
+    Rectangulo r_dch(alto_barra, ancho_barra, posx_ini_dch , posy_ini, 0, v_barra);
             
     while(!WindowShouldClose()){
         pelota.Mover(ancho, largo);
@@ -45,7 +47,9 @@ int main(){
         r_dch.MoverFlechas(Direccion(), ancho, largo);
 
         if(r_izd.Colision(pelota) || r_dch.Colision(pelota))
-            pelota.SetDX(pelota.GetDX() * -1);
+            pelota.SetDX(pelota.GetDX() * -1.0f);
+
+
         //parte grafica
         BeginDrawing();
         ClearBackground(BLACK);

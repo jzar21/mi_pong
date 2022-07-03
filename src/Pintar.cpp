@@ -10,3 +10,12 @@ void PintarRectangulo(const Rectangulo &r, Color c){
 void PintarPelota(const Pelota &p, Color c){
     DrawCircle(p.GetPosX(), p.GetPosY(), p.GetRadio(), c);
 }
+
+void PintarJuego(const Juego &j){
+    BeginDrawing();
+    ClearBackground(BLACK);
+    PintarRectangulo(j.GetP1(), WHITE);
+    PintarRectangulo(j.GetP2(), WHITE);
+    PintarPelota(j.GetPelota(), RED);
+    EndDrawing();
+}

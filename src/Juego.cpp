@@ -29,16 +29,49 @@ Juego::Juego(){
     r_dch.SetPosX(posx_ini_dch);
     r_dch.SetPosY(posy_ini);    
     r_dch.SetDY(v_barra);
+
+    Puntos_P1 = Puntos_P2 = 0;
+    marcar = false;
 }
 
 void Juego::Actualizar(){
-    pelota.Mover(ancho, largo);
-    pelota.RebotaBordes(ancho, largo);
-    r_izd.MoverFlechas(Direccion2(), ancho, largo);
-    r_dch.MoverFlechas(Direccion(), ancho, largo);
+    if(Puntos_P1 < P_MAX && Puntos_P2 < P_MAX){
+        if(!marcar){
+            pelota.Mover(ancho, largo);
+            pelota.RebotaBordes(ancho, largo);
+            r_izd.MoverFlechas(Direccion2(), ancho, largo);
+            r_dch.MoverFlechas(Direccion(), ancho, largo);
 
-    if(Colision(r_dch, pelota) || Colision(r_izd, pelota))
-        pelota.SetDX(pelota.GetDX() * -1.0f);
+            if(Colision(r_dch, pelota) || Colision(r_izd, pelota))
+                pelota.SetDX(pelota.GetDX() * -1.0f);
+
+            if(pelota.GetPosX() < posx_ini_izd ){
+                Puntos_P2 ++;
+                marcar = true;
+            }
+
+            if(pelota.GetPosX() > posx_ini_dch + ancho_barra){
+                Puntos_P1++;
+                marcar = true;
+            }
+
+        }else{
+            Reset();
+        }
+    }
+}
+
+void Juego::Reset(){
+    std::srand(time(NULL));
+    float v_y = (float)(-2 + rand() % 1)/10;
+    float v_x = (float)(-2 + rand() % 1)/10;
+
+    pelota.SetDX(v_x);
+    pelota.SetDY(v_y);
+    pelota.SetPosX(largo / 2);
+    pelota.SetPosY(ancho / 2); 
+
+    marcar = false;
 }
 
 Pelota Juego::GetPelota() const{
@@ -50,4 +83,12 @@ Rectangulo Juego::GetP1()const{
 }
 Rectangulo Juego::GetP2()const{
     return r_dch;
+}
+
+int Juego::Puntos_p1() const{
+    return Puntos_P1;
+}
+
+int Juego::Puntos_p2() const{
+    return Puntos_P2;
 }

@@ -3,6 +3,7 @@
 #include "Rectangulo.h"
 #include "Pelota.h"
 
+
 void PintarRectangulo(const Rectangulo &r, Color c){
     DrawRectangle(r.GetPosX(), r.GetPosY(), r.GetAncho(), r.GetLargo(), c);
 }
@@ -17,5 +18,7 @@ void PintarJuego(const Juego &j){
     PintarRectangulo(j.GetP1(), WHITE);
     PintarRectangulo(j.GetP2(), WHITE);
     PintarPelota(j.GetPelota(), RED);
+
+    DrawText("aaa", P_X_TXT, P_Y_TXT, TAM_LETRA, WHITE);
     EndDrawing();
 }

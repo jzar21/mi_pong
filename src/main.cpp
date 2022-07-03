@@ -5,7 +5,6 @@
 #include "Pintar.h"
 #include "F_Auxiliares.h"
 #include <random>
-#include <time.h>
 #include "Juego.h"
 
 

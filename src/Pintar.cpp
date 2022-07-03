@@ -21,6 +21,7 @@ void PintarJuego(const Juego &j){
     PintarRectangulo(j.GetP2(), WHITE);
     PintarPelota(j.GetPelota(), RED);
 
-    DrawText(texto, P_X_TXT, P_Y_TXT, TAM_LETRA, WHITE);
+    //ajustado para que quede en el centro
+    DrawText(texto, P_X_TXT - TAM_LETRA, P_Y_TXT, TAM_LETRA, WHITE);
     EndDrawing();
 }

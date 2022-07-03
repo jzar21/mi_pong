@@ -4,11 +4,10 @@
 #include "Pintar.h"
 #include "F_Auxiliares.h"
 #include <random>
-#include <time.h>
 #include "Juego.h"
 
 Juego::Juego(){
-    std::srand(time(NULL));
+    std::srand(0);
     float v_y = (float)(-2 + rand() % 1)/10;
     float v_x = (float)(-2 + rand() % 1)/10;
 
@@ -62,7 +61,7 @@ void Juego::Actualizar(){
 }
 
 void Juego::Reset(){
-    std::srand(time(NULL));
+    std::srand(0);
     float v_y = (float)(-2 + rand() % 1)/10;
     float v_x = (float)(-2 + rand() % 1)/10;
 

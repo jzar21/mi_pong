@@ -13,12 +13,14 @@ void PintarPelota(const Pelota &p, Color c){
 }
 
 void PintarJuego(const Juego &j){
+    char texto [] = {j.Puntos_p1() + '0', ' ', '-', ' ', '0' + j.Puntos_p2()};
+    
     BeginDrawing();
     ClearBackground(BLACK);
     PintarRectangulo(j.GetP1(), WHITE);
     PintarRectangulo(j.GetP2(), WHITE);
     PintarPelota(j.GetPelota(), RED);
 
-    DrawText("aaa", P_X_TXT, P_Y_TXT, TAM_LETRA, WHITE);
+    DrawText(texto, P_X_TXT, P_Y_TXT, TAM_LETRA, WHITE);
     EndDrawing();
 }

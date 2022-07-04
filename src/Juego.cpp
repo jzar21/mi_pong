@@ -14,8 +14,8 @@ Juego::Juego(){
     pelota.SetDX(v_x);
     pelota.SetDY(v_y);
     pelota.SetRadio(t_pelota);
-    pelota.SetPosX(largo / 2);
-    pelota.SetPosY(ancho / 2);
+    pelota.SetPosX(ancho / 2);
+    pelota.SetPosY(largo / 2); 
 
     r_izd.SetAncho(ancho_barra);
     r_izd.SetLargo(alto_barra);
@@ -67,8 +67,8 @@ void Juego::Reset(){
 
     pelota.SetDX(v_x);
     pelota.SetDY(v_y);
-    pelota.SetPosX(largo / 2);
-    pelota.SetPosY(ancho / 2); 
+    pelota.SetPosX(ancho / 2);
+    pelota.SetPosY(largo / 2); 
 
     marcar = false;
 }

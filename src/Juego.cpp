@@ -5,11 +5,12 @@
 #include "F_Auxiliares.h"
 #include <random>
 #include "Juego.h"
+#include <time.h>
 
 Juego::Juego(){
-    std::srand(0);
-    float v_y = (float)(-2 + rand() % 1)/10;
-    float v_x = (float)(-2 + rand() % 1)/10;
+    std::srand(time(0));
+    float v_y = (float)(V_MIN + rand() % V_MAX)/10;
+    float v_x = (float)(V_MIN + rand() % V_MAX)/10;
 
     pelota.SetDX(v_x);
     pelota.SetDY(v_y);
@@ -61,9 +62,9 @@ void Juego::Actualizar(){
 }
 
 void Juego::Reset(){
-    std::srand(0);
-    float v_y = (float)(-2 + rand() % 1)/10;
-    float v_x = (float)(-2 + rand() % 1)/10;
+    std::srand(time(0));
+    float v_y = (float)(V_MIN + rand() % V_MAX)/10;
+    float v_x = (float)(V_MIN + rand() % V_MAX)/10;
 
     pelota.SetDX(v_x);
     pelota.SetDY(v_y);

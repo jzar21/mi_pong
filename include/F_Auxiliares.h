@@ -4,7 +4,7 @@
 #include <cmath>
 #include "Rectangulo.h"
 #include "Pelota.h"
-#include "raylib.h"
+#include <raylib.h>
 
 const float DIFF = 0.001f;
 

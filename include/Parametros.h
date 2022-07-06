@@ -8,7 +8,8 @@ const int largo = 600;
 //variables de juego
 const float v_barra = 0.2f;
 const int P_MAX = 5;
-
+const int V_MIN = -5;
+const int V_MAX = 5;
 const int t_pelota = 10;
 const int alto_barra = 90;
 const int ancho_barra = 20;

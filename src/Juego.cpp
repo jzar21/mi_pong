@@ -42,9 +42,12 @@ void Juego::Actualizar(){
             r_izd.MoverFlechas(Direccion2(), ancho, largo);
             r_dch.MoverFlechas(Direccion(), ancho, largo);
 
-            if(Colision(r_dch, pelota) || Colision(r_izd, pelota))
-                pelota.SetDX(pelota.GetDX() * -1.0f);
-
+            if(Colision(r_dch, pelota)){
+                CambiaDireccion(r_dch, pelota);
+            }
+            if(Colision(r_izd, pelota)){
+                CambiaDireccion(r_izd, pelota);
+            }
             if(pelota.GetPosX() < posx_ini_izd ){
                 Puntos_P2 ++;
                 marcar = true;
@@ -54,6 +57,8 @@ void Juego::Actualizar(){
                 Puntos_P1++;
                 marcar = true;
             }
+
+            pelota.SetDX(pelota.GetDX() * 1.001f);
 
         }else{
             Reset();
@@ -91,4 +96,15 @@ int Juego::Puntos_p1() const{
 
 int Juego::Puntos_p2() const{
     return Puntos_P2;
+}
+
+void Juego::CambiaDireccion(const Rectangulo & r, Pelota & p){
+    p.SetDX(p.GetDX() * -1.0f);
+
+    float diferencia = (-r.GetPosY() - r.GetLargo() / 2 + p.GetPosY()) / (r.GetLargo() / 2 );
+    diferencia *= 1.5f;
+    if(r.GetPosY() + r.GetLargo() / 2 < p.GetPosY())
+        p.SetDY(diferencia * abs(p.GetDY()) + diferencia);
+    else
+        p.SetDY(diferencia * abs(p.GetDY()) + diferencia);
 }

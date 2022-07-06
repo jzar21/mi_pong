@@ -19,6 +19,7 @@ private:
     int Puntos_P2;
     bool marcar;
     void Reset();
+    void CambiaDireccion(const Rectangulo & r, Pelota & p);
 public:
     Juego();
     void Actualizar();

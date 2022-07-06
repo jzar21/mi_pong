@@ -29,6 +29,6 @@ void PintarJuego(const Juego &j){
 
     if(j.Puntos_p2() == P_MAX)
         DrawText("P2 HA GANADO", P_X_TXT - 4.5 * TAM_LETRA, largo / 2 - TAM_LETRA, TAM_LETRA, WHITE);
-
+    DrawFPS(10, 10);  
     EndDrawing();
 }

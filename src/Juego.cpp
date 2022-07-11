@@ -8,6 +8,7 @@
 #include <time.h>
 
 Juego::Juego(){
+    //iniciamos los objetos del juego con los datos correspondientes
     std::srand(time(0));
     float v_y = (float)(V_MIN + rand() % V_MAX * 2)/10;
     float v_x = (float)(V_MIN + rand() % V_MAX * 2)/10;
@@ -35,19 +36,22 @@ Juego::Juego(){
 }
 
 void Juego::Actualizar(){
-    if(Puntos_P1 < P_MAX && Puntos_P2 < P_MAX){
-        if(!marcar){
+    if(Puntos_P1 < P_MAX && Puntos_P2 < P_MAX){//si nadie gana
+        if(!marcar){// si no se ha marcado
+
             pelota.Mover(ancho, largo);
             pelota.RebotaBordes(ancho, largo);
             r_izd.MoverFlechas(Direccion2(), ancho, largo);
             r_dch.MoverFlechas(Direccion(), ancho, largo);
 
+            // verificamos si la pelota choca en alguno de los ladrillos
             if(Colision(r_dch, pelota)){
                 CambiaDireccion(r_dch, pelota);
             }
             if(Colision(r_izd, pelota)){
                 CambiaDireccion(r_izd, pelota);
             }
+            // si la pelota sobrepasa al ladrillo sumamos puntos y reiniciamos
             if(pelota.GetPosX() < posx_ini_izd ){
                 Puntos_P2 ++;
                 marcar = true;
@@ -58,15 +62,16 @@ void Juego::Actualizar(){
                 marcar = true;
             }
 
+            //aceleramos la pelota poco a poco
             pelota.SetDX(pelota.GetDX() * ACELELARION_PELOTA);
 
-        }else{
+        }else{//si se marca se resetea el juego
             Reset();
         }
     }
 }
 
-void Juego::Reset(){
+void Juego::Reset(){//reiniciamos los valores de la pelota
     std::srand(time(0));
     float v_y = (float)(V_MIN + rand() % V_MAX * 2)/10;
     float v_x = (float)(V_MIN + rand() % V_MAX * 2)/10;
@@ -99,12 +104,10 @@ int Juego::Puntos_p2() const{
 }
 
 void Juego::CambiaDireccion(const Rectangulo & r, Circulo & p){
-    p.SetDX(p.GetDX() * -1.0f);
+    p.SetDX(p.GetDX() * -1.0f);//cambiamos la direccion de la pelota
 
+    //normalizamos la posicion del impacto para que varie de -1 a 1
     float diferencia = (-r.GetPosY() - r.GetLargo() / 2 + p.GetPosY()) / (r.GetLargo() / 2 );
-
-    if(r.GetPosY() + r.GetLargo() / 2 < p.GetPosY())
-        p.SetDY(diferencia * std::fabs(p.GetDX()) );
-    else
-        p.SetDY(diferencia * std::fabs(p.GetDX()) );
+    //incrementamos la dy en proporcion a dx
+    p.SetDY(diferencia * std::fabs(p.GetDX()));
 }

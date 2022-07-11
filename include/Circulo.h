@@ -1,14 +1,14 @@
-#ifndef PELOTA_H
-#define PELOTA_H
+#ifndef CIRCULO_H
+#define CIRCULO_H
 #include <cmath>
 
-class Pelota{
+class Circulo{
 private:
     float radio, p_x, p_y, dx, dy;
-    void AjustarPosiciones(float, float);
+    void AjustarPosiciones(float ancho, float alto);
 public:
-    Pelota();
-    Pelota(float, float, float, float, float);
+    Circulo();
+    Circulo(float radio, float x, float y, float vx, float vy);
     void SetRadio(float);
     void SetDX(float);
     void SetDY(float);    
@@ -22,7 +22,7 @@ public:
     float GetDY(void) const;
     
     void Mover(void);
-    void Mover(float, float);
-    void RebotaBordes(float, float);
+    void Mover(float ancho, float alto);
+    void RebotaBordes(float ancho, float alto);
 };
 #endif

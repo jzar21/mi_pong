@@ -1,5 +1,5 @@
 #include "Parametros.h"
-#include "Pelota.h"
+#include "Circulo.h"
 #include "Rectangulo.h"
 #include "Pintar.h"
 #include "F_Auxiliares.h"
@@ -58,7 +58,7 @@ void Juego::Actualizar(){
                 marcar = true;
             }
 
-            pelota.SetDX(pelota.GetDX() * 1.001f);
+            pelota.SetDX(pelota.GetDX() * ACELELARION_PELOTA);
 
         }else{
             Reset();
@@ -79,7 +79,7 @@ void Juego::Reset(){
     marcar = false;
 }
 
-Pelota Juego::GetPelota() const{
+Circulo Juego::GetPelota() const{
     return pelota;
 }
 
@@ -98,13 +98,13 @@ int Juego::Puntos_p2() const{
     return Puntos_P2;
 }
 
-void Juego::CambiaDireccion(const Rectangulo & r, Pelota & p){
+void Juego::CambiaDireccion(const Rectangulo & r, Circulo & p){
     p.SetDX(p.GetDX() * -1.0f);
 
     float diferencia = (-r.GetPosY() - r.GetLargo() / 2 + p.GetPosY()) / (r.GetLargo() / 2 );
-    diferencia *= 1.5f;
+
     if(r.GetPosY() + r.GetLargo() / 2 < p.GetPosY())
-        p.SetDY(diferencia * abs(p.GetDY()) + diferencia);
+        p.SetDY(diferencia * fabs(p.GetDX()) );
     else
-        p.SetDY(diferencia * abs(p.GetDY()) + diferencia);
+        p.SetDY(diferencia * fabs(p.GetDX()) );
 }

@@ -1,6 +1,6 @@
 #include <raylib.h>
 #include "Parametros.h"
-#include "Pelota.h"
+#include "Circulo.h"
 #include "Rectangulo.h"
 #include "Pintar.h"
 #include "F_Auxiliares.h"

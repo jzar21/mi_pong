@@ -2,11 +2,7 @@
 #include <raylib.h>
 
 
-bool Igual(float a, float b){
-    return fabsf(a - b) <= DIFF;
-}
-
-bool Colision(const Rectangulo &r, const Pelota &p){
+bool Colision(const Rectangulo &r, const Circulo &p){
     Vector2 punto = {p.GetPosX(), p.GetPosY()};
     Rectangle rec = {r.GetPosX(), r.GetPosY(), r.GetAncho(), r.GetLargo()};
 

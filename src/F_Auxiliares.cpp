@@ -1,5 +1,5 @@
 #include "F_Auxiliares.h"                                    
-#include "raylib.h"
+#include <raylib.h>
 
 
 bool Colision(const Rectangulo &r, const Circulo &p){

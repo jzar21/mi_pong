@@ -1,5 +1,5 @@
 #include "Pintar.h"
-#include "raylib.h"
+#include <raylib.h>
 #include "Rectangulo.h"
 #include "Circulo.h"
 

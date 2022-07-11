@@ -16,7 +16,7 @@ Circulo::Circulo(float radio, float x, float y, float vx, float vy){
 }
 
 void Circulo::SetRadio(float el_radio){
-    radio = abs(el_radio);
+    radio = std::abs(el_radio);
 }
 
 void Circulo::Mover(void){

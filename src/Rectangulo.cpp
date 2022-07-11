@@ -17,11 +17,11 @@ Rectangulo::Rectangulo(float largo, float ancho, float _pos_x, float _pos_y, flo
 }
 
 void Rectangulo::SetLargo(float el_largo){
-    largo = abs(el_largo);
+    largo = std::abs(el_largo);
 }
 
 void Rectangulo::SetAncho(float el_ancho){
-    ancho = abs(el_ancho);
+    ancho = std::abs(el_ancho);
 }
 
 void Rectangulo::SetPosY(float y){

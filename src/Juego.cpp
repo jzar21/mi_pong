@@ -104,7 +104,7 @@ void Juego::CambiaDireccion(const Rectangulo & r, Circulo & p){
     float diferencia = (-r.GetPosY() - r.GetLargo() / 2 + p.GetPosY()) / (r.GetLargo() / 2 );
 
     if(r.GetPosY() + r.GetLargo() / 2 < p.GetPosY())
-        p.SetDY(diferencia * fabs(p.GetDX()) );
+        p.SetDY(diferencia * std::fabs(p.GetDX()) );
     else
-        p.SetDY(diferencia * fabs(p.GetDX()) );
+        p.SetDY(diferencia * std::fabs(p.GetDX()) );
 }

@@ -9,9 +9,9 @@
 
 Juego::Juego(){
     std::srand(time(0));
-    float v_y = (float)(V_MIN + rand() % V_MAX)/10;
-    float v_x = (float)(V_MIN + rand() % V_MAX)/10;
-
+    float v_y = (float)(V_MIN + rand() % V_MAX * 2)/10;
+    float v_x = (float)(V_MIN + rand() % V_MAX * 2)/10;
+    
     pelota.SetDX(v_x);
     pelota.SetDY(v_y);
     pelota.SetRadio(t_pelota);
@@ -68,8 +68,8 @@ void Juego::Actualizar(){
 
 void Juego::Reset(){
     std::srand(time(0));
-    float v_y = (float)(V_MIN + rand() % V_MAX)/10;
-    float v_x = (float)(V_MIN + rand() % V_MAX)/10;
+    float v_y = (float)(V_MIN + rand() % V_MAX * 2)/10;
+    float v_x = (float)(V_MIN + rand() % V_MAX * 2)/10;
 
     pelota.SetDX(v_x);
     pelota.SetDY(v_y);

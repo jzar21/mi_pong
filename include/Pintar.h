@@ -1,6 +1,6 @@
 #ifndef PINTAR_H
 #define PINTAR_H
-#include <raylib.h>
+#include "raylib.h"
 #include "Rectangulo.h"
 #include "Circulo.h"
 #include "Juego.h"

@@ -15,34 +15,34 @@ Juego::Juego(){
     
     pelota.SetDX(v_x);
     pelota.SetDY(v_y);
-    pelota.SetRadio(t_pelota);
-    pelota.SetPosX(ancho / 2);
-    pelota.SetPosY(largo / 2); 
+    pelota.SetRadio(TAM_PELOTA);
+    pelota.SetPosX(ANCHO_PANTALLA / 2);
+    pelota.SetPosY(ALTO_PANTALLA / 2); 
 
-    r_izd.SetAncho(ancho_barra);
-    r_izd.SetLargo(alto_barra);
-    r_izd.SetPosX(posx_ini_izd);
-    r_izd.SetPosY(posy_ini);
-    r_izd.SetDY(v_barra);
+    r_izd.SetAncho(ANCHO_BARRA);
+    r_izd.SetLargo(ALTO_BARRA);
+    r_izd.SetPosX(PX_INICIAL_IZD);
+    r_izd.SetPosY(PY_INICIAL);
+    r_izd.SetDY(VELOCIDAD_BARRA);
 
-    r_dch.SetAncho(ancho_barra);   
-    r_dch.SetLargo(alto_barra);
-    r_dch.SetPosX(posx_ini_dch);
-    r_dch.SetPosY(posy_ini);    
-    r_dch.SetDY(v_barra);
+    r_dch.SetAncho(ANCHO_BARRA);   
+    r_dch.SetLargo(ALTO_BARRA);
+    r_dch.SetPosX(PX_INICIAL_DCH);
+    r_dch.SetPosY(PY_INICIAL);    
+    r_dch.SetDY(VELOCIDAD_BARRA);
 
     Puntos_P1 = Puntos_P2 = 0;
     marcar = false;
 }
 
 void Juego::Actualizar(){
-    if(Puntos_P1 < P_MAX && Puntos_P2 < P_MAX){//si nadie gana
+    if(Puntos_P1 < PUNTOS_GANADORES && Puntos_P2 < PUNTOS_GANADORES){//si nadie gana
         if(!marcar){// si no se ha marcado
 
-            pelota.Mover(ancho, largo);
-            pelota.RebotaBordes(ancho, largo);
-            r_izd.MoverFlechas(Direccion2(), ancho, largo);
-            r_dch.MoverFlechas(Direccion(), ancho, largo);
+            pelota.Mover(ANCHO_PANTALLA, ALTO_PANTALLA);
+            pelota.RebotaBordes(ANCHO_PANTALLA, ALTO_PANTALLA);
+            r_izd.MoverFlechas(Direccion2(), ANCHO_PANTALLA, ALTO_PANTALLA);
+            r_dch.MoverFlechas(Direccion(), ANCHO_PANTALLA, ALTO_PANTALLA);
 
             // verificamos si la pelota choca en alguno de los ladrillos
             if(Colision(r_dch, pelota)){
@@ -52,12 +52,12 @@ void Juego::Actualizar(){
                 CambiaDireccion(r_izd, pelota);
             }
             // si la pelota sobrepasa al ladrillo sumamos puntos y reiniciamos
-            if(pelota.GetPosX() < posx_ini_izd ){
+            if(pelota.GetPosX() < PX_INICIAL_IZD ){
                 Puntos_P2 ++;
                 marcar = true;
             }
 
-            if(pelota.GetPosX() > posx_ini_dch + ancho_barra){
+            if(pelota.GetPosX() > PX_INICIAL_DCH + ANCHO_BARRA){
                 Puntos_P1++;
                 marcar = true;
             }
@@ -78,8 +78,8 @@ void Juego::Reset(){//reiniciamos los valores de la pelota
 
     pelota.SetDX(v_x);
     pelota.SetDY(v_y);
-    pelota.SetPosX(ancho / 2);
-    pelota.SetPosY(largo / 2); 
+    pelota.SetPosX(ANCHO_PANTALLA / 2);
+    pelota.SetPosY(ALTO_PANTALLA / 2); 
 
     marcar = false;
 }

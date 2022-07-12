@@ -10,8 +10,8 @@
 
 
 int main(){
-    InitWindow(ancho, largo, "Mi Pong");
-    SetTargetFPS(60);
+    InitWindow(ANCHO_PANTALLA, ALTO_PANTALLA, "Mi Pong");
+    SetTargetFPS(FPS);
     Juego mi_juego;
 
     while(!WindowShouldClose()){

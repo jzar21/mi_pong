@@ -2,24 +2,31 @@
 #define PARAMETROS_H
 
 //variables de pantalla
-const int ancho = 1000;
-const int largo = 600;
- 
+const int ANCHO_PANTALLA = 1000;
+const int ALTO_PANTALLA = 600;
+const int FPS = 60; // si se aumentan o disminuyen hay que modificar las velocidades
+
+
 //variables de juego
-const float v_barra = 10.0f;
-const int P_MAX = 5;
+    //velocidades
+const float VELOCIDAD_BARRA = 10.0f;
 const int V_MIN = -40;
 const int V_MAX = 40;
 const float ACELELARION_PELOTA = 1.002f;
-const int t_pelota = 10;
-const int alto_barra = 110;
-const int ancho_barra = 20;
-const int posy_ini = largo / 2 - alto_barra;
-const int posx_ini_izd = ancho_barra;
-const int posx_ini_dch = ancho - 2 * ancho_barra;
 
+    //numero maximo de partidas
+const int PUNTOS_GANADORES = 5;
 
-const int P_X_TXT = ancho / 2;
+    //variables de visualizacion
+const int TAM_PELOTA = 10;
+const int ALTO_BARRA = 110;
+const int ANCHO_BARRA = 20;
+const int PY_INICIAL = ALTO_PANTALLA / 2 - ALTO_BARRA;
+const int PX_INICIAL_IZD = ANCHO_BARRA;
+const int PX_INICIAL_DCH = ANCHO_PANTALLA - 2 * ANCHO_BARRA;
+
+//variables de texto
+const int P_X_TXT = ANCHO_PANTALLA / 2;
 const int P_Y_TXT = 10;
 const int TAM_LETRA = 40;
 
